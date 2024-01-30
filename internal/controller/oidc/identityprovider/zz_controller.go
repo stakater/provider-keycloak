@@ -24,6 +24,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	v1alpha1 "github.com/stakater/provider-keycloak/apis/oidc/v1alpha1"
+	features "github.com/stakater/provider-keycloak/internal/features"
 )
 
 // Setup adds a controller that reconciles IdentityProvider managed resources.
@@ -51,6 +52,9 @@ func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	}
 	if o.PollJitter != 0 {
 		opts = append(opts, managed.WithPollJitterHook(o.PollJitter))
+	}
+	if o.Features.Enabled(features.EnableBetaManagementPolicies) {
+		opts = append(opts, managed.WithManagementPolicies())
 	}
 	r := managed.NewReconciler(mgr, xpresource.ManagedKind(v1alpha1.IdentityProvider_GroupVersionKind), opts...)
 
