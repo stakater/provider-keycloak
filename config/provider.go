@@ -44,6 +44,7 @@ func GetProvider() *ujconfig.Provider {
 			KnownReferencers(),
 		),
 		ujconfig.WithRootGroup(rootGroup))
+	ujconfig.WithFeaturesPackage("internal/features")
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
