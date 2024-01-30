@@ -82,6 +82,12 @@ spec:
                       role. Defaults to false. Enable/disable if new users can read
                       any stored tokens. This assigns the broker.read-token role.
                     type: boolean
+                  alias:
+                    description: The alias uniquely identifies an identity provider
+                      and it is also used to build the redirect uri. The alias uniquely
+                      identifies an identity provider and it is also used to build
+                      the redirect uri.
+                    type: string
                   authenticateByDefault:
                     description: Enable/disable authenticate users by default.
                     type: boolean
@@ -389,6 +395,8 @@ spec:
                       signatures. Defaults to false. Enable/disable signature validation
                       of external IDP signatures.
                     type: boolean
+                required:
+                - alias
                 type: object
               initProvider:
                 description: THIS IS A BETA FIELD. It will be honored unless the Management
@@ -744,6 +752,12 @@ spec:
                       role. Defaults to false. Enable/disable if new users can read
                       any stored tokens. This assigns the broker.read-token role.
                     type: boolean
+                  alias:
+                    description: The alias uniquely identifies an identity provider
+                      and it is also used to build the redirect uri. The alias uniquely
+                      identifies an identity provider and it is also used to build
+                      the redirect uri.
+                    type: string
                   authenticateByDefault:
                     description: Enable/disable authenticate users by default.
                     type: boolean

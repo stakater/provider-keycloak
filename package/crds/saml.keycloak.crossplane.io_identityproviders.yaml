@@ -72,6 +72,11 @@ spec:
                       role. Defaults to false. Enable/disable if new users can read
                       any stored tokens. This assigns the broker.read-token role.
                     type: boolean
+                  alias:
+                    description: The unique name of identity provider. The alias uniquely
+                      identifies an identity provider and it is also used to build
+                      the redirect uri.
+                    type: string
                   authenticateByDefault:
                     description: Authenticate users by default. Defaults to false.
                       Enable/disable authenticate users by default.
@@ -329,6 +334,8 @@ spec:
                     description: The SAML signature key name. Can be one of NONE,
                       KEY_ID, or CERT_SUBJECT. Sign Key Transformer.
                     type: string
+                required:
+                - alias
                 type: object
               initProvider:
                 description: THIS IS A BETA FIELD. It will be honored unless the Management
@@ -709,6 +716,11 @@ spec:
                       role. Defaults to false. Enable/disable if new users can read
                       any stored tokens. This assigns the broker.read-token role.
                     type: boolean
+                  alias:
+                    description: The unique name of identity provider. The alias uniquely
+                      identifies an identity provider and it is also used to build
+                      the redirect uri.
+                    type: string
                   authenticateByDefault:
                     description: Authenticate users by default. Defaults to false.
                       Enable/disable authenticate users by default.

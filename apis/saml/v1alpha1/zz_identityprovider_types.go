@@ -164,6 +164,10 @@ type IdentityProviderObservation struct {
 	// Enable/disable if new users can read any stored tokens. This assigns the broker.read-token role.
 	AddReadTokenRoleOnCreate *bool `json:"addReadTokenRoleOnCreate,omitempty" tf:"add_read_token_role_on_create,omitempty"`
 
+	// The unique name of identity provider.
+	// The alias uniquely identifies an identity provider and it is also used to build the redirect uri.
+	Alias *string `json:"alias,omitempty" tf:"alias,omitempty"`
+
 	// Authenticate users by default. Defaults to false.
 	// Enable/disable authenticate users by default.
 	AuthenticateByDefault *bool `json:"authenticateByDefault,omitempty" tf:"authenticate_by_default,omitempty"`
@@ -314,6 +318,11 @@ type IdentityProviderParameters struct {
 	// Enable/disable if new users can read any stored tokens. This assigns the broker.read-token role.
 	// +kubebuilder:validation:Optional
 	AddReadTokenRoleOnCreate *bool `json:"addReadTokenRoleOnCreate,omitempty" tf:"add_read_token_role_on_create,omitempty"`
+
+	// The unique name of identity provider.
+	// The alias uniquely identifies an identity provider and it is also used to build the redirect uri.
+	// +kubebuilder:validation:Required
+	Alias *string `json:"alias" tf:"alias,omitempty"`
 
 	// Authenticate users by default. Defaults to false.
 	// Enable/disable authenticate users by default.
